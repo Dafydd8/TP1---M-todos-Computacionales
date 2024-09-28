@@ -291,7 +291,34 @@ $$
 
 Para el segundo ítem, cuando $x'(1) = y'(0) = 0$, se cumple que $x'(1) = 3p_3 - 3p_2 = 0$ por lo que $p_3 = p_2$. Similarmente, $y'(0) = 3p_4 - 3p_3 = 0$ por lo que $p_4 = p_3$. Entonces, cuando $x'(1) = y'(0) = 0$, se cumple $p_2 = p_3 = p_4$.
 
-Para el tercer ítem, si la curva tiene continuidad $C^2$, debe cumplirse que tiene continuidad $C^1$ y que la derivada segunda de la curva compuesta es continua en $p_3$.  
+Para el tercer ítem, si la curva tiene continuidad $C^2$, debe cumplirse que tiene continuidad $C^1$ y que la derivada segunda de la curva compuesta es continua en $p_3$. Es decir, queremos $x''(1) = y''(0)$.
+
+Evaluando las derivadas segundas de $x(t)$ e $y(t)$ en $t = 1$ y $t=0$ respectivamente, obtenemos:
+\begin{itemize}
+    \item $x''(1) = 6p_3 -12p_2 + 6p_1$
+    \item $y''(0) = 6p_5 -12p_4 + 6_p3$
+\end{itemize}
+
+Entonces, para que la curva sea $C^2$ debe cumplirse:
+$$
+\begin{aligned}
+x''(1) &= y''(0) \\
+6p_3 -12p_2 + 6p_1 &= 6p_5 -12p_4 + 6_p3 \\
+6p_5 &= 12p_4-12p_2+6p_1
+\end{aligned}
+$$
+
+Pero como la curva también es $C^1$, sabemos que $2p_3 = p_4 +p_2$, por lo que $p_4 = 2p_3-p_2$. Entonces:
+
+$$
+\begin{aligned}
+6p_5 &= 12p_4-12p_2+6p_1 \\
+6p_5 &= 12(2p_3-p_2)-12p_2+6p_1 \\
+p_5 &= 4p_3 - 4p_2 +p_1
+\end{aligned}
+$$
+
+Así vemos, que los puntos $p_0$, ..., $p_5$ están determinados por $p_0$, $p_1$, $p_2$ y $p_3$, siendo  $p_4 = 2p_3-p_2$ y $p_5 = 4p_3 - 4p_2 +p_1$
 
 \end{document}
 
