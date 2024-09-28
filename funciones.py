@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 ######################
 
 # Función para graficar puntos individuales
-def graficar_punto(punto, color='b', label='', size = 30):
+def graficar_punto(punto, color='black', label='', size = 30):
     plt.scatter(punto[0], punto[1], color=color, label=label, s=size)
 
 

@@ -22,6 +22,9 @@ graficar_punto(puntos[1], color='g', label='p1')  # p1
 graficar_punto(puntos[2], color='m', label='p2')  # p2
 
 # Configurar el gráfico
+plt.title('Curvas f0, f1 y g')
+plt.xlabel('x')
+plt.ylabel('y')
 plt.axhline(0, color='black', linewidth=0.5)
 plt.axvline(0, color='black', linewidth=0.5)
 plt.grid()

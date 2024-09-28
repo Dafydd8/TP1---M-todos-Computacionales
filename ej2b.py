@@ -16,6 +16,9 @@ plt.plot(t_values, coef2[:], label='Curva coef2')
 plt.plot(t_values, coef3[:], label='Curva coef3')
 
 # Configurar el gráfico
+plt.title('Curvas de los coeficientes de la función h(t)')
+plt.xlabel('t')
+plt.ylabel('coeficiente')
 plt.axhline(0, color='black', linewidth=0.5)
 plt.axvline(0, color='black', linewidth=0.5)
 plt.grid()

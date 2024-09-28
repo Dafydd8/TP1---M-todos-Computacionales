@@ -6,10 +6,10 @@ from funciones import *
 # Generar 3 conjuntos de puntos aleatorios para los ejemplos
 puntos_ejemplo = []
 for i in range(3):
-    p0 = np.array([randint(0, 10), randint(0, 10)])
-    p1 = np.array([randint(0, 10), randint(0, 10)])
-    p2 = np.array([randint(0, 10), randint(0, 10)])
-    p3 = np.array([randint(0, 10), randint(0, 10)])
+    p0 = np.array([randint(5*i, 5*i+5), randint(5*i, 5*i+5)])
+    p1 = np.array([randint(5*i, 5*i+5), randint(5*i, 5*i+5)])
+    p2 = np.array([randint(5*i, 5*i+5), randint(5*i, 5*i+5)])
+    p3 = np.array([randint(5*i, 5*i+5), randint(5*i, 5*i+5)])
     puntos_ejemplo.append([p0, p1, p2, p3])
 
 # Generar las curvas usando los puntos de ejemplo
@@ -31,10 +31,14 @@ for i, puntos in enumerate(puntos_ejemplo):
         plt.scatter(punto[0], punto[1], color=colores[i+1], label=f'Puntos control ejemplo {i+1}' if punto is puntos[0] else '')
 
 # Configurar el gráfico
+plt.title('Ejemplos de curvas h(t)')
+plt.xlabel('x')
+plt.ylabel('y')
 plt.axhline(0, color='black', linewidth=0.5)
 plt.axvline(0, color='black', linewidth=0.5)
 plt.grid()
 plt.legend()
+
 
 # Mostrar el gráfico
 plt.show()
