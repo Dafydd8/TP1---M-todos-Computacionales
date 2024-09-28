@@ -11,23 +11,20 @@ for i in range(len(puntos)):
     puntos[i] = np.array(puntos[i])
 
 #generar la curva de Bézier
-curva = []
-for t in np.linspace(0, 1, 100):
-    curva.append(bezier(t, puntos))
+t_values = np.linspace(0, 1, 100)
+curva = np.array([bezier(t, puntos) for t in t_values])
 
 # Graficar la curva resultante del ejemplo
-graficar_curva(curva, color='b', label='Curva de Bézier')
+plt.plot(curva[:, 0], curva[:, 1], label='Curva de Bézier', color='blue')
 
 # Grafico puntos
-graficar_punto(puntos[0], color='b', label='Original p0')  # p0
-graficar_punto(puntos[1], color='g', label='Original p1')  # p1
-graficar_punto(puntos[2], color='m', label='Original p2')  # p2
+graficar_punto(puntos[0], color='b', label='p0')  # p0
+graficar_punto(puntos[1], color='g', label='p1')  # p1
+graficar_punto(puntos[2], color='m', label='p2')  # p2
 
+graficar_poligono(puntos)
 
-plt.plot([puntos[0][0], puntos[1][0]], [puntos[0][1], puntos[1][1]], color="black")
-plt.plot([puntos[0][0], puntos[2][0]], [puntos[0][1], puntos[2][1]], color="black")
-plt.plot([puntos[1][0], puntos[2][0]], [puntos[1][1], puntos[2][1]], color="black")
-
+# Configurar el gráfico
 plt.axhline(0, color='black', linewidth=0.5)
 plt.axvline(0, color='black', linewidth=0.5)
 plt.grid()

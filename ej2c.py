@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 from random import randint
 from funciones import *
 
+# Generar 3 conjuntos de puntos aleatorios para los ejemplos
 puntos_ejemplo = []
 for i in range(3):
     p0 = np.array([randint(0, 10), randint(0, 10)])
@@ -11,26 +12,23 @@ for i in range(3):
     p3 = np.array([randint(0, 10), randint(0, 10)])
     puntos_ejemplo.append([p0, p1, p2, p3])
 
-ej1 = []
-ej2 = []
-ej3 = []
-
-for t in np.linspace(0, 1, 100):
-    ej1.append(h(t, puntos_ejemplo[0]))
-    ej2.append(h(t, puntos_ejemplo[1]))
-    ej3.append(h(t, puntos_ejemplo[2]))
+# Generar las curvas usando los puntos de ejemplo
+t_values = np.linspace(0, 1, 100)
+ej1 = np.array([h(t, puntos_ejemplo[0]) for t in t_values])
+ej2 = np.array([h(t, puntos_ejemplo[1]) for t in t_values])
+ej3 = np.array([h(t, puntos_ejemplo[2]) for t in t_values])
 
 # Graficar las curvas resultantes de los ejemplos
-graficar_curva(ej1, color='b', label='ej1')
-graficar_curva(ej2, color='g', label='ej2')
-graficar_curva(ej3, color='r', label='ej3')
+plt.plot(ej1[:, 0], ej1[:, 1], label='Ejemplo 1', color='blue')
+plt.plot(ej2[:, 0], ej2[:, 1], label='Ejemplo 2', color='green')
+plt.plot(ej3[:, 0], ej3[:, 1], label='Ejemplo 3', color='red')
 
+
+# Graficar cada conjunto de puntos
 colores = {1: '#020070', 2: '#007d11', 3: '#990000'}
-
-for j, ejemplo in enumerate(puntos_ejemplo):
-    for i in range(len(ejemplo)):
-        graficar_punto(ejemplo[i], color=colores[j+1])  # p0
-
+for i, puntos in enumerate(puntos_ejemplo):
+    for punto in puntos:
+        plt.scatter(punto[0], punto[1], color=colores[i+1], label=f'Puntos control ejemplo {i+1}' if punto is puntos[0] else '')
 
 # Configurar el gráfico
 plt.axhline(0, color='black', linewidth=0.5)

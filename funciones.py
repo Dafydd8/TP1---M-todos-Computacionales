@@ -9,13 +9,13 @@ import matplotlib.pyplot as plt
 def graficar_punto(punto, color='b', label='', size = 30):
     plt.scatter(punto[0], punto[1], color=color, label=label, s=size)
 
-#Función para graficar curva a partir de puntos
-def graficar_curva(puntos, color='b', label=''):
-    for punto in puntos:
-        if punto is puntos[0]:
-            graficar_punto(punto, color, label, 10)
+
+def graficar_poligono(puntos, color='black', label=''):
+    for i in range(len(puntos)):
+        if i == len(puntos)-1:
+            plt.plot([puntos[i][0], puntos[0][0]], [puntos[i][1], puntos[0][1]], color=color, label=label)
         else:
-            graficar_punto(punto, color, size=10)
+            plt.plot([puntos[i][0], puntos[i+1][0]], [puntos[i][1], puntos[i+1][1]], color=color, label=label)
 
 #########################
 #FUNCIONES DE EJERCICIOS#
