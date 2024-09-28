@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 from random import randint
 from funciones import *
 
+# Puntos de ejemplo en R2
 puntos_ejemplo = [np.array([1, 6]), np.array([4, 9]), np.array([3, 9]), np.array([1, 0])]
 
 p0 = puntos_ejemplo[0]
