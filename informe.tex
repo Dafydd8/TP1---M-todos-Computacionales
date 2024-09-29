@@ -28,7 +28,7 @@
 \maketitle
 
 \section*{Introducción}
-El presente informe tiene como objetivo documentar y analizar los desarrollos realizados en el marco del Trabajo Práctico 1 de la materia Métodos Computacionales. A lo largo de los ejercicios planteados, se trabajó con curvas de Bézier de diferentes grados, explorando sus propiedades geométricas y matemáticas, así como su representación computacional. Para esto, se implementaron algoritmos en Python que permiten construir estas curvas y sus correspondientes transformaciones lineales. Adicionalmente, se estudió la continuidad de las curvas compuestas y se verificaron las condiciones necesarias para lograr continuidad C1C1 y C2C2 en las mismas. Este informe detalla paso a paso la resolución de los ejercicios, las fórmulas obtenidas, los gráficos generados, y las conclusiones derivadas de los experimentos realizados.
+El presente informe tiene como objetivo documentar y analizar los desarrollos realizados en el marco del Trabajo Práctico 1 de la materia Métodos Computacionales. A lo largo de los ejercicios planteados, se trabajó con curvas de Bézier de diferentes grados, explorando sus propiedades geométricas y matemáticas, así como su representación computacional. Para esto, se implementaron algoritmos en Python que permiten construir estas curvas y sus correspondientes transformaciones lineales. Adicionalmente, se estudió la continuidad de las curvas compuestas y se verificaron las condiciones necesarias para lograr continuidad $C^1$ y $C^2$ en las mismas. Este informe detalla paso a paso la resolución de los ejercicios, las fórmulas obtenidas, los gráficos generados, y las conclusiones derivadas de los experimentos realizados.
 
 
 \section*{Ejercicio 1}
@@ -102,13 +102,13 @@ Para el segundo ítem, utilizamos el código que se puede encontrar en la secci�
     \label{fig:ejemplo}
 \end{figure}
 
-Para la suma de los coeficientes, vimos que con $t=0.3, t=0.5 y t=0.8$ dicha suma siempre daba 1. Por lo tanto decidimos ver que pasaba con un t genérico. La suma de los coeficientes será:
+Para la suma de los coeficientes, vimos que con $t=0.3$, $t=0.5$ y $t=0.8$ dicha suma siempre daba 1. Por lo tanto decidimos ver que pasaba con un $t$ genérico. La suma de los coeficientes será:
 
 $$
 t^3 + 3t^2-3t^3 + 3t^3-6t^2+3t +3t^2-t^3-3t+1
 $$
 
-En dicha suma, los términos dependientes de t se cancelan para toda t, por lo que la suma siempre vale 1.
+En dicha suma, los términos dependientes de $t$ se cancelan para toda $t$, por lo que la suma siempre vale 1.
 
 \subsection*{Tercer ítem}
 Se obtuvo, a partir del código en el archivo .ipynb en la sección "Ejercicio 2", el siguiente gráfico:
@@ -172,7 +172,7 @@ Las curvas de Bézier son combinaciones convexas ya que, como demostramos en el 
     \begin{minipage}{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{imagenes/3b2.png}
-        \caption{Ejemplo 2 Bézier con 3}
+        \caption{Ejemplo 2 Bézier con 3 puntos}
         \label{fig:grafico2}
     \end{minipage}
 \begin{minipage}{0.45\textwidth}
@@ -202,7 +202,7 @@ t^2 \\
 t^3
 \end{array}
 \right]
-$, primero la desarrollamos obteniendo:
+$, primero desarrollamos la expresión dada para llegar a una donde los coeficientes polinomiales estén expresados como aparecen en $u(t)$. La expresión resultante es:
 
 $$
 x(t) = p_0 + t(-3p_0+3p_1) + t^2(3p_0-6p_1+3p_2) + t^3(-p_0+3p_1-3p_2+p_3)
@@ -239,7 +239,7 @@ $ y $u''(t) =
 \end{bmatrix}
 $
 
-Con esto, $x'(t) = G M_B u'(t)$ y $x''(t) = G M_B u''(t)$. Se desarrollaron estas expresiones como se muestra a continuación para llegar a una expresión desarrollada de $x'(t)$ y $x''(t)$.
+Con esto, calculamos $x'(t) = G M_B u'(t)$ y $x''(t) = G M_B u''(t)$. Se desarrollaron estas expresiones como se muestra a continuación para llegar a una expresión desarrollada de $x'(t)$ y $x''(t)$.
 
 \begin{figure}[H]
    \centering
@@ -266,13 +266,13 @@ Así, las expresiones desarrolladas para $x'(t)$ y $x''(t)$ son:
     \item $x''(t) = p_0(6 - 6t) + p_1(-12 + 18t) + p_2(6 - 18t) + p_3(6t)$
 \end{itemize}
 
-Para determinar cómo se relaciona el vector tangente de la curva de Bézier x(t) con los puntos de control de la curva en $t=0$ y $t=1$, evaluamos $x'(t)$ en $t = 1$ y $t = 0$, obteniendo $x'(0) = 3p_1-3p_0$ y $x'(1) = 3p_2-3p_2$. Los vectores tangentes son:
+Para determinar cómo se relaciona el vector tangente de la curva de Bézier $x(t)$ con los puntos de control de la curva en $t=0$ y $t=1$, evaluamos $x'(t)$ en $t = 1$ y $t = 0$, obteniendo $x'(0) = 3p_1-3p_0$ y $x'(1) = 3p_2-3p_2$. Los vectores tangentes son:
 \begin{itemize}
     \item En $t = 0$, $p_0 + (3p_1-3p_0) = 3p_1-2p_0$ (porque el vector pasa por el punto $p_0$).
     \item En $t = 1$, $p_3 +  (3p_3-3p_2) =  4p_3-3p_2$ (porque el vector pasa por el punto $p_3$).
 \end{itemize}
 
-A continuación mostramos un ejemplo de una curva de Bézier (la definida por los puntos $p_0 = (1, 6)$, $p_1 = (4, 9)$, $p_2 = (3, 9)$, $p_0 = (1, 0)$) y sus vectores tangentes en $t = 0$ y $t = 1$. El código que genera el gráfico est[a en el .ipynb en la sección "Ejercicio 4".
+A continuación mostramos un ejemplo de una curva de Bézier (la definida por los puntos $p_0 = (1, 6)$, $p_1 = (4, 9)$, $p_2 = (3, 9)$, $p_0 = (1, 0)$) y sus vectores tangentes en $t = 0$ y $t = 1$. El código que genera el gráfico está en el .ipynb en la sección "Ejercicio 4".
 
 \begin{figure}[H]
     \centering
@@ -296,7 +296,7 @@ x'(1) &= y'(0) \\
 $$
 
 \subsection*{Segundo ítem}
-Cuando $x'(1) = y'(0) = 0$, se cumple que $x'(1) = 3p_3 - 3p_2 = 0$ por lo que $p_3 = p_2$. Similarmente, $y'(0) = 3p_4 - 3p_3 = 0$ por lo que $p_4 = p_3$. Entonces, cuando $x'(1) = y'(0) = 0$, se cumple $p_2 = p_3 = p_4$.
+Cuando $x'(1) = y'(0) = 0$, se cumple que $x'(1) = 3p_3 - 3p_2 = 0$, por lo que $p_3 = p_2$. Similarmente, $y'(0) = 3p_4 - 3p_3 = 0$, por lo que $p_4 = p_3$. Entonces, cuando $x'(1) = y'(0) = 0$, se cumple $p_2 = p_3 = p_4$.
 
 \subsection*{Tercer ítem}
 Si la curva tiene continuidad $C^2$, debe cumplirse que tiene continuidad $C^1$ y que la derivada segunda de la curva compuesta es continua en $p_3$. Es decir, queremos $x''(1) = y''(0)$.
@@ -326,7 +326,7 @@ p_5 &= 4p_3 - 4p_2 +p_1
 \end{aligned}
 $$
 
-Así, vemos que los puntos $p_0$, ..., $p_5$ están determinados por $p_0$, $p_1$, $p_2$ y $p_3$, siendo  $p_4 = 2p_3-p_2$ y $p_5 = 4p_3 - 4p_2 +p_1$
+Así, vemos que los puntos $p_0$, ..., $p_5$ están determinados por $p_0$, $p_1$, $p_2$ y $p_3$, siendo  $p_4 = 2p_3-p_2$ y $p_5 = 4p_3 - 4p_2 +p_1$.
 
 \section*{Ejercicio 6}
 \subsection*{Primer ítem}
@@ -354,7 +354,7 @@ $$
 Así, dada una transformación lineal $T(x)$, aplicarla sobre una curva de Bézier $x(t)$ resulta en en una nueva curva de Bézier $w(t)$ cuyos puntos de control serán  $T(p_0)$,  $T(p_1)$,  $T(p_2)$ y  $T(p_3)$.
 
 \subsection*{Tercer ítem}
-Definimos $T(x) = Ax = b$. De esta forma, buscamos que $T(x)$ cumpla, $T(p_0) = q_3$ y $T(p_3) = q_0$. 
+Definimos $T(x) = Ax = b$. De esta forma, buscamos que $T(x)$ cumpla $T(p_0) = q_3$ y $T(p_3) = q_0$. 
 Para eso, definimos: 
 
 $A =  
@@ -416,13 +416,13 @@ q_{02}
 \end{pmatrix}
 $$\\
 
-Resolviéndolo, llegamos a la solución
+Resolviéndolo, llegamos a la solución \\
 
 $a = \frac{-p_{32}q_{31} + p_{02}q_{01}}{p_{02}p_{31} - p_{01}p_{32}} $ , $b = \frac{p_{31}q_{31} - p_{01}q_{01}}{p_{02}p_{31} - p_{01}p_{32}} $ , $c = \frac{-p_{32}q_{32} + p_{02}q_{02}}{p_{02}p_{31} - p_{01}p_{32}} $ , $d = \frac{p_{31}q_{32} - p_{01}q_{02}}{p_{02}p_{31} - p_{01}p_{32}} $ \\
 
 Como se puede ver, para que las soluciones existan, no puede pasar que $p_{02}p_{31} = p_{01}p_{32}$. Además, durante la resolución del sistema, $p_{01}$ es denominador en distintos momentos, por lo que como restricción adicional, no puede pasar  que $p_{01} = 0$.
 
-Así, $T(x)$ existe solamente si $p_{02}p_{31} \neq p_{01}p_{32}$ y $p_{01} \neq 0$, y es:
+Así, $T(x)$ existe si y solo si $p_{02}p_{31} \neq p_{01}p_{32}$ y $p_{01} \neq 0$, y la definimos como:
 
 $$ T(x) = 
 \begin{pmatrix}
@@ -434,7 +434,7 @@ x
 $$
 
 \subsection*{Cuarto ítem}
-Definimos una función \textit{matriz\_transformacion(puntos\_p, puntos\_q)} en python que toma los puntos de control de $x(t)$ e $y(t)$ en \textit{puntos\_p} y \textit{puntos\_q} respectivamente y genera la matriz $A$ tal como fue definida en el ítem anterior. La misma se encuentra en la sección "Ejercicio 6" del archivo .ipynb. 
+Definimos una función \textit{matriz\_transformacion(puntos\_p, puntos\_q)} en Python que recibe los puntos de control de $x(t)$ e $y(t)$ en \textit{puntos\_p} y \textit{puntos\_q} respectivamente y genera la matriz $A$ tal como fue definida en el ítem anterior. La misma se encuentra en la sección "Ejercicio 6" del archivo .ipynb. 
 
 Además, en dicha sección se encuentra el resto del código necesario para generar y graficar $x(t)$, $y(t)$ y $T(x(t))$. El mismo consiste en:
 \begin{itemize}
