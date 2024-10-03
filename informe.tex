@@ -58,7 +58,7 @@ $$
 
 Como se puede ver, la fórmula obtenida es cuadrática con respecto a $t$, por lo tanto, $g(t)$ es una curva de Bézier cuadrática.
 \subsection*{Tercer ítem}
-El gráfico se generó con el código que se encuentra en la sección "Ejercicio 1". Como puntos de ejemplo se usaron $p_0 = (1, 2)$, $p_1 = (5, 6)$, $p_2 = (2, 10)$. El gráfico resultante se muestra  a continuación:
+El gráfico se generó con el código que se encuentra en la sección ``Ejercicio 1''. Como puntos de ejemplo se usaron $p_0 = (1, 2)$, $p_1 = (5, 6)$, $p_2 = (2, 10)$. El gráfico resultante se muestra  a continuación:
 
 \begin{figure}[H]
     \centering
@@ -67,13 +67,13 @@ El gráfico se generó con el código que se encuentra en la sección "Ejercicio
     \label{fig:ejemplo}
 \end{figure}
 
-Luego de construir $g(t)$ a partir de $f_0(t)$ y $f_1(t)$ podemos decir que estas dos últimas "se combinan" para generar  $g(t)$. A los resultados de $f_0(t)$ y $f_1(t)$ se les aplica nuevamente la misma función (porque $f_0(t)$ y $f_1(t)$ son la misma función aplicada sobre distintos puntos).
+Luego de construir $g(t)$ a partir de $f_0(t)$ y $f_1(t)$ podemos decir que estas dos últimas ``se combinan" para generar  $g(t)$. A los resultados de $f_0(t)$ y $f_1(t)$ se les aplica nuevamente la misma función (porque $f_0(t)$ y $f_1(t)$ son la misma función aplicada sobre distintos puntos).
 
-Decidimos definir "la función" como $f(t, p_i, p_j) = (1-t) p_i + t p_j$.
+Decidimos definir ``la función" como $f(t, p_i, p_j) = (1-t) p_i + t p_j$.
 
 Entonces, $f_0(t) = f(t, p_0, p_1)$, $f_1(t) = f(t, p_1, p_2)$ y $g(t) = f(t, f_0(t), f_1(t))$.
 
-Intuimos que para generar una curva de Bézier cúbica, se agregará un cuarto punto $p_3$. El mismo se combinará con $p_2$ para formar una $f_2(t) = f(t, p_2, p_3)$. El resultado de esa función se combinará con el de $f_1(t)$ para formar una función similar a $g(t)$. El resultado de estas dos "$g(t)$" serán utilizados como parámetros nuevamente de $f(t, p_i, p_j)$ para generar la curva de Bézier cúbica.
+Intuimos que para generar una curva de Bézier cúbica, se agregará un cuarto punto $p_3$. El mismo se combinará con $p_2$ para formar una $f_2(t) = f(t, p_2, p_3)$. El resultado de esa función se combinará con el de $f_1(t)$ para formar una función similar a $g(t)$. El resultado de estas dos ``$g(t)$" serán utilizados como parámetros nuevamente de $f(t, p_i, p_j)$ para generar la curva de Bézier cúbica.
 
 \section*{Ejercicio 2}
 \subsection*{Primer ítem}
@@ -93,7 +93,7 @@ h(t) = t^3p_3 + (3t^2-3t^3)p_2 + (3t^3-6t^2+3t)p1 + (3t^2-t^3-3t+1)p0
 $$
 
 \subsection*{Segundo ítem}
-Para el segundo ítem, utilizamos el código que se puede encontrar en la sección "Ejercicio 2" del archivo .ipynb. El gráfico resultante es el siguiente:
+Para el segundo ítem, utilizamos el código que se puede encontrar en la sección ``Ejercicio 2" del archivo .ipynb. El gráfico resultante es el siguiente:
 
 \begin{figure}[H]
     \centering
@@ -111,7 +111,7 @@ $$
 En dicha suma, los términos dependientes de $t$ se cancelan para toda $t$, por lo que la suma siempre vale 1.
 
 \subsection*{Tercer ítem}
-Se obtuvo, a partir del código en el archivo .ipynb en la sección "Ejercicio 2", el siguiente gráfico:
+Se obtuvo, a partir del código en el archivo .ipynb en la sección ``Ejercicio 2", el siguiente gráfico:
 
 \begin{figure}[H]
     \centering
@@ -125,9 +125,9 @@ Se obtuvo, a partir del código en el archivo .ipynb en la sección "Ejercicio 2
 \subsection*{Primer ítem:}
 Para $S_1 = \{v_1\}$, las posibles combinaciones lineales son $c_1 v_1$. Como la suma de los coeficientes debe ser 1, y solo hay un coeficiente, debe valer $c_1 = 1$. Por lo tanto, $conv(S_1) = \{v_1\}$.
  
-Para $S_2 = \{v_1, v_2\}$, las posibles combinaciones lineales son $c_1 v_1 + c_2 v_2$. Como la suma de los coeficientes debe ser 1, debe valer $c_1 + c_2= 1 \iff c_1 = 1 - c_2$. Por lo tanto, $conv(S_2) = \{c_1 v_1+ c_2 v_2 \in \mathbb{R}^2 \mid c_1, c_2 \geq 0$ y $ c_1 = 1- c_2\} = \{$[$v_1, v_2$][$1-c_2, c_2$]$^T \in \mathbb{R}^2 \mid c_1, c_2 \geq 0$\}.
+Para $S_2 = \{v_1, v_2\}$, las posibles combinaciones lineales son $c_1 v_1 + c_2 v_2$. Como la suma de los coeficientes debe ser 1, debe valer $c_1 + c_2= 1 \iff c_1 = 1 - c_2$. Por lo tanto, $conv(S_2) = \{c_1 v_1+ c_2 v_2 \in \mathbb{R}^2 \mid c_1, c_2 \geq 0$ y $ c_1 = 1- c_2\} = \{$[$v_1, v_2$][$1-c_2, c_2$]$^T \in \mathbb{R}^2 \mid (1 - c_2), c_2 \geq 0$\}.
 
-Para $S_3 = \{v_1, v_2, v_3\}$, las posibles combinaciones lineales son $c_1 v_1 + c_2 v_2 + c_3 v_3$. Como la suma de los coeficientes debe ser 1, debe valer $c_1 + c_2 + c_3 = 1 \iff c_1 = 1 - c_2 - c_3$ (hay dos variables libres). Por lo tanto, $conv(S_3) = \{c_1 v_1+ c_2 v_2 + c_3 v_3\in \mathbb{R}^2 \mid c_1, c_2, c_3 \geq 0$ y $ c_1 = 1- c_2-c_3\} = \{$[$v_1, v_2, v_3$][$1-c_2 - c_3, c_2, c_3$]$^T\in \mathbb{R}^2 \mid c_1, c_2, c_3 \geq 0$\}.
+Para $S_3 = \{v_1, v_2, v_3\}$, las posibles combinaciones lineales son $c_1 v_1 + c_2 v_2 + c_3 v_3$. Como la suma de los coeficientes debe ser 1, debe valer $c_1 + c_2 + c_3 = 1 \iff c_1 = 1 - c_2 - c_3$ (hay dos variables libres). Por lo tanto, $conv(S_3) = \{c_1 v_1+ c_2 v_2 + c_3 v_3\in \mathbb{R}^2 \mid c_1, c_2, c_3 \geq 0$ y $ c_1 = 1- c_2-c_3\} = \{$[$v_1, v_2, v_3$][$1-c_2 - c_3, c_2, c_3$]$^T\in \mathbb{R}^2 \mid (1 - c_2 - c_3), c_2, c_3 \geq 0$\}.
 
 Visualizaciones:
 
@@ -158,7 +158,7 @@ Visualizaciones:
 Como se puede ver, las combinaciones convexas siempre están contenidas en el polígono que forman los puntos combinados (marcado en cada caso, salvo el de $S_1$, en negro).
 
 \subsection*{Segundo ítem:}
-Las curvas de Bézier son combinaciones convexas ya que, como demostramos en el ejercicio 2, la suma de los coeficientes que multiplican a los puntos siempre suman 1 y son $\geq 0$ para todo t entre 0 y 1. Por lo tanto, como en el ítem anterior, los puntos que resulten de ellas siempre estarán dentro del polígono delimitado por los puntos combinados, es decir, los puntos de control. Se muestran algunos ejemplos (generados corriendo varias veces el código del archivo .ipynb en la sección "Ejercicio 3"):
+Las curvas de Bézier son combinaciones convexas ya que, como demostramos en el ejercicio 2, la suma de los coeficientes que multiplican a los puntos siempre suman 1 y son $\geq 0$ para todo t entre 0 y 1. Por lo tanto, como en el ítem anterior, los puntos que resulten de ellas siempre estarán dentro del polígono delimitado por los puntos combinados, es decir, los puntos de control. Se muestran algunos ejemplos (generados corriendo varias veces el código del archivo .ipynb en la sección ``Ejercicio 3"):
 
 \begin{figure}[H]
    \centering
@@ -272,7 +272,7 @@ Para determinar cómo se relaciona el vector tangente de la curva de Bézier $x(
     \item En $t = 1$, $p_3 +  (3p_3-3p_2) =  4p_3-3p_2$ (porque el vector pasa por el punto $p_3$).
 \end{itemize}
 
-A continuación mostramos un ejemplo de una curva de Bézier (la definida por los puntos $p_0 = (1, 6)$, $p_1 = (4, 9)$, $p_2 = (3, 9)$, $p_0 = (1, 0)$) y sus vectores tangentes en $t = 0$ y $t = 1$. El código que genera el gráfico está en el .ipynb en la sección "Ejercicio 4".
+A continuación mostramos un ejemplo de una curva de Bézier (la definida por los puntos $p_0 = (1, 6)$, $p_1 = (4, 9)$, $p_2 = (3, 9)$, $p_0 = (1, 0)$) y sus vectores tangentes en $t = 0$ y $t = 1$. El código que genera el gráfico está en el .ipynb en la sección ``Ejercicio 4".
 
 \begin{figure}[H]
     \centering
@@ -330,7 +330,7 @@ Así, vemos que los puntos $p_0$, ..., $p_5$ están determinados por $p_0$, $p_1
 
 \section*{Ejercicio 6}
 \subsection*{Primer ítem}
-La función implementada y el código que genera $x(t)$ e $y(t)$ se encuentran en la sección "Ejercicio 6" del archivo .ipynb. En la misma sección se generan las curvas de $x(t)$ e $y(t)$. Los gráficos resultantes de dichas curvas se muestran en el cuarto ítem de este ejercicio.
+La función implementada y el código que genera $x(t)$ e $y(t)$ se encuentran en la sección ``Ejercicio 6" del archivo .ipynb. En la misma sección se generan las curvas de $x(t)$ e $y(t)$. Los gráficos resultantes de dichas curvas se muestran en el cuarto ítem de este ejercicio.
 
 \subsection*{Segundo ítem}
 Partimos de la igualdad $x(t) = (1 - t)^3 p_0 + 3t(1 - t)^2 p_1 + 3t^2(1 - t) p_2 + t^3 p_3$ y aplicamos la transformación $T(x)$ de ambos lados de la igualdad:
@@ -434,7 +434,7 @@ x
 $$
 
 \subsection*{Cuarto ítem}
-Definimos una función \textit{matriz\_transformacion(puntos\_p, puntos\_q)} en Python que recibe los puntos de control de $x(t)$ e $y(t)$ en \textit{puntos\_p} y \textit{puntos\_q} respectivamente y genera la matriz $A$ tal como fue definida en el ítem anterior. La misma se encuentra en la sección "Ejercicio 6" del archivo .ipynb. 
+Definimos una función \textit{matriz\_transformacion(puntos\_p, puntos\_q)} en Python que recibe los puntos de control de $x(t)$ e $y(t)$ en \textit{puntos\_p} y \textit{puntos\_q} respectivamente y genera la matriz $A$ tal como fue definida en el ítem anterior. La misma se encuentra en la sección ``Ejercicio 6" del archivo .ipynb. 
 
 Además, en dicha sección se encuentra el resto del código necesario para generar y graficar $x(t)$, $y(t)$ y $T(x(t))$. El mismo consiste en:
 \begin{itemize}
